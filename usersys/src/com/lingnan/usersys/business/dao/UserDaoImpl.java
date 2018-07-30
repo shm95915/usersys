@@ -42,13 +42,11 @@ public class UserDaoImpl implements BaseDao{
 			//定义预编译对象
 			PreparedStatement ptmt = null;
 			//赋初值
-			int id = user.getId();
 			String userid = user.getUserid();
 			String uname = user.getUname();
 			String pass = user.getPass();
 			String email = user.getEmail();
 			String power = user.getPower();
-			Date birth = new Date();
 			try {
 				ptmt = conn.prepareStatement
 						("insert into m_user(userid,uname,pass,email,power,status)"
@@ -58,7 +56,6 @@ public class UserDaoImpl implements BaseDao{
 				ptmt.setString(3, pass);
 				ptmt.setString(4, email);
 				ptmt.setString(5, power);
-
 				ptmt.executeUpdate();
 				flag = true;
 				System.out.println("注册成功");
@@ -102,6 +99,7 @@ public class UserDaoImpl implements BaseDao{
 					user.setUserid(rs.getString("userid"));
 					user.setPass(rs.getString("pass"));
 				}
+//				System.out.println(user.getEmail()+user.getPower());
 				System.out.println("登录成功");
 			} catch (SQLException e) {
 				//将异常改为自定义异常类
