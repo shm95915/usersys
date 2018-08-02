@@ -54,7 +54,7 @@ public class DBUtil {
 	 * 
 	 * @param conn
 	 */
-	public void beginTransaction(Connection conn){
+	public static void beginTransaction(Connection conn){
 		try {
 			//将事务的自动提交设置为假
 			conn.setAutoCommit(false);
